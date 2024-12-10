@@ -25,6 +25,7 @@ print("請幫我輸入兩個數，讓其進行加減乘除和比大小")
 num1 = int(input("這裡是第一個數: "))
 num2 = int(input("這裡是第二個數: "))
 
+# 加減乘除比大小
 print(f"加法: {num1 + num2}")
 print(f"減法: {num1 - num2}")
 print(f"乘法: {num1 * num2}")
