@@ -106,6 +106,22 @@ def display_list(items):
         for index, item in enumerate(items, start=1):
             print(f"{index}: {item}")
 
+def confirm_action(action):
+    '''
+    確定是否進行操作
+    action:為要進行的操作
+    回傳 True 表示確認，False 表示取消
+    '''
+    while True:
+        check = input(f"確定要進行{action}嗎?(Y/N): ").strip().upper()
+        if check == "Y":
+            return True
+        elif check == "N":
+            print(f"已取消{action}")
+            return False
+        else:
+            print("輸入無效，請輸入(Y/N)")        
+
 def add_item(items):
     '''清單中新增元素'''
     item = input("請輸入要加入的水果: ")
@@ -127,6 +143,12 @@ def modify_item(items):
         index = int(input("\n請輸入要修改的項目編號：")) - 1
         if 0 <= index < len(items):  # 檢查編號是否有效
             old_item = items[index]
+            print(f"你選擇的項目為{old_item}")
+
+            # 確認是否進行修改
+            if not confirm_action("修改此項目"):
+                return # 使用者取消操作
+
             new_item = input(f"請輸入新的內容來替換「{old_item}」：")  # 提示輸入新資料
             items[index] = new_item  # 更新清單內容
             print(f"已成功將「{old_item}」修改為「{new_item}」！")
