@@ -38,6 +38,15 @@ def search_item(data):
     value = data.get(key, "找不到該鍵的資料")
     print(f"{key}: {value}")
 
+def clear_dict(data):
+    """清除字典"""
+    confrim = input("確定要清除嗎?(y/n): ").lower()
+    if confrim == "y":
+        data.clear()
+        print("已清除完成")
+    else:
+        print("操作取消")
+
 def main():
     data = {}
     while True:
@@ -47,9 +56,10 @@ def main():
         print("3.修改資料")
         print("4.刪除資料")
         print("5.查詢資料")
-        print("6.離開")
+        print("6.清除字典")
+        print("7.離開")
 
-        choice = input("請輸入要進行的操作項目編號(1-5): ")
+        choice = input("請輸入要進行的操作項目編號(1-7): ")
         if choice == "1":
             display_dict(data)
         elif choice == "2":
@@ -61,6 +71,8 @@ def main():
         elif choice == "5":
             search_item(data)
         elif choice == "6":
+            clear_dict(data)
+        elif choice == "7":
             print("感謝使用本系統")
             break
         else:
